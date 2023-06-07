@@ -1,0 +1,37 @@
+1st.
+
+class Solution {
+    public int findNumbers(int[] nums) {
+        int n=0;
+        for(int num:nums){
+            if(num<0){
+                num=num*-1;
+            }
+            num= (int)(Math.log10(num))+1;  // counting the digits 
+            if( num %2==0) n++;
+        }
+        return n;
+
+        
+    }
+}
+
+
+2nd.
+class Solution {
+    public int findNumbers(int[] nums) {
+        int n=0;
+        for(int num:nums){
+            int count=0;
+            while(num>0){
+                num=num/10;
+                count++;
+            }
+            if(count%2==0) n++;
+
+        }
+        return n;
+
+        
+    }
+}
