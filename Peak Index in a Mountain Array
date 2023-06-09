@@ -1,1 +1,26 @@
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            int mid =  (end + start) / 2;
+            if (arr[mid] >arr[mid+1]) {
+                // you are in decreasing part of the array
+                // this may be the ans
+                end = mid;
 
+
+            } else {
+                // you are in increasing part of the array
+                start = mid +1; // beacause we know that mid+1 element > mid element
+            }
+
+            // int the end === end and ponting to the largest elements in the above 2 chwecks 
+            //
+        
+
+    }
+    return start;
+        
+    }
+}
