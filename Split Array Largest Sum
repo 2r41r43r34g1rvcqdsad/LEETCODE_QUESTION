@@ -1,0 +1,43 @@
+class Solution {
+    public int splitArray(int[] nums, int k) {
+        int start = 0;
+        int end= nums.length-1;
+        for(int i =0 ; i<nums.length;i++){
+            start = Math.max(start,nums[i]);// It is like the simple binary search
+            end += nums[i];
+
+        }
+        while(start<end){
+            // suppose the mid as potential answer
+            int mid = start+(end-start)/2;
+            // Now calculate that in how many pices we can divide with the maximum sum
+            int sum = 0;
+            int pieces =1;
+            for(int num:nums){
+                if(sum+num>mid){
+                    // you can not make continue arrary make new one
+                    // to make it as new subarray num=sum; pices++
+                    sum=num; 
+                    pieces++;
+                }
+                else {
+                    // otherwise jsut keep addding into a single sbuarray
+                    sum+=num;
+                }
+            }
+
+            if(pieces>k){
+                start=mid+1;
+
+            }
+            else{
+                end = mid;
+            }
+
+        
+        }
+        return end;
+        
+        
+    }
+}
